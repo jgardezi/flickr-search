@@ -23,17 +23,22 @@ class FlickrController extends Controller
      */
     public function index()
     {
-//        $test = '';
-//        try {
-//            $test = $this->flickr->echoThis('HelloFlickr');
-//        } catch (\Exception $e) {
-//            throw new \Exception($e->getMessage());
-//        }
+        try {
+            $test = $this->flickr->echoThis('HelloFlickr');
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
 
-        $test = $this->flickr->echoThis('HelloFlickr');
+        // $test->stat
+        return view('flickr.index');
+    }
 
+    /**
+     * Search photos
+     */
+    public function search()
+    {
 
-        return $test->stat;
     }
 
     /**

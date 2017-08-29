@@ -181,6 +181,7 @@ return [
          * 3rd party package services
          */
         JeroenG\Flickr\FlickrServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -232,6 +233,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Flickr' => JeroenG\Flickr\FlickrLaravelFacade::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
