@@ -177,6 +177,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * 3rd party package services
+         */
+        JeroenG\Flickr\FlickrServiceProvider::class,
+
     ],
 
     /*
@@ -225,6 +230,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'Flickr' => JeroenG\Flickr\FlickrLaravelFacade::class,
 
     ],
 

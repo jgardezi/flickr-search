@@ -17,6 +17,10 @@ Simple Flickr Search API allows users to search for photos and allows users to g
 - Run `composer install` command
 - To see on web browser `php artisan serve`
 
+## Package Used
+- jeroen-g/flickr
+- [API used flickr.photos.search](https://www.flickr.com/services/api/flickr.photos.search.html)
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
