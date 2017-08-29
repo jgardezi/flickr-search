@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use JeroenG\Flickr;
+use Illuminate\Http\Request;
+use App\Http\Requests\FlickrSearchRequest;
 
 class FlickrController extends Controller
 {
@@ -17,6 +18,8 @@ class FlickrController extends Controller
 
     /**
      * Display a listing of the resource.
+     *
+     * @todo move echoThis to unittest to test flickr API connection
      *
      * @return Flickr\Response|string
      * @throws \Exception
@@ -35,10 +38,23 @@ class FlickrController extends Controller
 
     /**
      * Search photos
+     *
+     * @param FlickrSearchRequest $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Exception
      */
-    public function search()
+    public function search(FlickrSearchRequest $request)
     {
+        $searchTerm = $request->get('search');
+        try {
+            $result = $this->flickr->request('flickr.photos.search', [
+                'tags' => $searchTerm,
+            ]);
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
 
+        return view('flickr.search', $result);
     }
 
     /**

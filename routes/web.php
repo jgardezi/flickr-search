@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('flickr', 'FlickrController', ['only' => [
-    'index', 'show'
-]]);
+Route::get('flickr/search', ['as' => 'flickr.search', 'uses' => 'FlickrController@search']);
+Route::post('flickr/search', ['as' => 'flickr.search', 'uses' => 'FlickrController@search']);
+Route::get('flickr', ['as' => 'flickr.index', 'uses' => 'FlickrController@index']);
