@@ -3,7 +3,7 @@
 _**CODE & DOCUMENTATION IN DEVELOPMENT**_
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+[![Build Status](https://travis-ci.org/jgardezi/flickr-search.svg?branch=master)](https://travis-ci.org/jgardezi/flickr-search)
 </p>
 
 ## Flickr Photo Search
@@ -33,7 +33,8 @@ Simple Flickr Search API allows users to search for photos and allows users to g
 
 ## References
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+- The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+- [Repository Pattern](https://bosnadev.com/2015/03/07/using-repository-pattern-in-laravel-5/)
 
 ## Future improvement
 - Dockers
