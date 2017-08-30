@@ -20,7 +20,8 @@
             <div class="container">
                 <div class="links">
                     {{ Form::open(array(
-                        'url' => 'flickr/search'
+                        'url' => 'flickr/search',
+                        'method' => 'get',
                     )) }}
 
                     <div class="form-group input-group-lg">

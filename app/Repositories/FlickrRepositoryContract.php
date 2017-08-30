@@ -1,21 +1,31 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jgardezi
- * Date: 30/8/17
- * Time: 5:21 AM
- */
 
-namespace app\Repositories;
+namespace App\Repositories;
 
+use App\Http\Requests\FlickrSearchRequest;
 
 interface FlickrRepositoryContract
 {
     /**
-     * Search Flickr Photo interface
+     * Test Flickr API connection.
      *
-     * @param $input
-     * @param $per_page
+     * @return string
+     */
+    public function testFlickrApi();
+
+    /**
+     * Find a photo
+     *
+     * @param int $id unique photo identifier
+     * @return mixed
+     */
+    public function findOrThrowException($id);
+
+    /**
+     * Search Flickr Photos by tags
+     *
+     * @param FlickrSearchRequest $input
+     * @param int $per_page
      * @return mixed
      */
     public function searchPhotos($input, $per_page);

@@ -30,7 +30,7 @@ Simple Flickr Search API allows users to search for photos by **tags** and allow
 ## Application Testing/Demo
 - Using web browser
 
-## Package Used
+## Open source packages used
 - [jeroen-g/flickr](https://github.com/Jeroen-G/Flickr): Flickr API integration
 - [laravelcollective/html](https://laravelcollective.com/docs/5.4/html): Laravel HTML forms
 

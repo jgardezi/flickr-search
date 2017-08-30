@@ -2,37 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use JeroenG\Flickr;
-use Illuminate\Http\Request;
+use App\Http\Requests\FlickrPhotoRequest;
 use App\Http\Requests\FlickrSearchRequest;
+use App\Repositories\FlickrRepositoryContract;
 
 class FlickrController extends Controller
 {
+    /**
+     * @var FlickrRepositoryContract
+     */
     protected $flickr;
 
-    public function __construct()
+    /**
+     * Initialize Flickr API using DI approach.
+     *
+     * FlickrController constructor.
+     * @param FlickrRepositoryContract $flickr
+     */
+    public function __construct(FlickrRepositoryContract $flickr)
     {
-        $api = new Flickr\Api(env('FLICKR_KEY'), env('FLICKR_API_FORMAT'));
-        $this->flickr = new Flickr\Flickr($api);
+        $this->flickr = $flickr;
     }
 
     /**
-     * Display a listing of the resource.
+     * Display search page.
      *
-     * @todo move echoThis to unittest to test flickr API connection
-     *
-     * @return Flickr\Response|string
      * @throws \Exception
      */
     public function index()
     {
-        try {
-            $test = $this->flickr->echoThis('HelloFlickr');
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage());
-        }
-
-        // $test->stat
         return view('flickr.index');
     }
 
@@ -45,16 +43,9 @@ class FlickrController extends Controller
      */
     public function search(FlickrSearchRequest $request)
     {
-        $searchTerm = $request->get('search');
-        try {
-            $result = $this->flickr->request('flickr.photos.search', [
-                'tags' => $searchTerm,
-            ]);
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage());
-        }
+        $photos = $this->flickr->searchPhotos($request, 20);
 
-        return view('flickr.search', $result);
+        return view('flickr.search', compact('photos'));
     }
 
     /**
@@ -63,8 +54,10 @@ class FlickrController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(FlickrPhotoRequest $request, $id)
     {
-        //
+        $photo = $this->flickr->findOrThrowException($id);
+
+        return view('flickr.photo', compact('photo'));
     }
 }

@@ -23,6 +23,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->registerBindings();
+    }
+
+    /**
+     * Register service provider bindings
+     */
+    public function registerBindings()
+    {
+        $this->app->bind(
+            \App\Repositories\FlickrRepositoryContract::class,
+            \App\Repositories\FlickrRepository::class
+        );
     }
 }
