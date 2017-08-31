@@ -4,8 +4,6 @@
 <a href="https://travis-ci.org/jgardezi/flickr-search"><img src="https://travis-ci.org/jgardezi/flickr-search.svg" alt="Build Status"></a>
 </p>
 
-_**CODE & DOCUMENTATION IN DEVELOPMENT**_
-
 ## Flickr Photo Search
 
 Simple Flickr Search API allows users to search for photos by **tags** and allows users to go to full details of photos.
@@ -48,7 +46,6 @@ this layer of abstraction is incredibly useful.
 - Micro-services (use of Lumen framework instead Laravel, more generic)
 
 ## TODO
-- Fix Travis CI issues and add PHP_CodeCoverage, phpmd
 - Better UI implementation
 - Expose search API's (optional)
 
