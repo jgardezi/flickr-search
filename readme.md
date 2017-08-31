@@ -38,7 +38,7 @@ this layer of abstraction is incredibly useful.
 - To see on web browser `php artisan serve` or use Homestead
 
 ## Application Testing/Demo
-- Using web browser path: `/flickr`
+- Using web browser path: [demo link](http://flickr-search.ap-southeast-2.elasticbeanstalk.com/flickr)
 - Testing covers basic Unit and Functional Testing. If using Homestead run `phpunit` in the project directory.
 
 ## Future improvement
