@@ -29,6 +29,11 @@ class FlickrRepository implements FlickrRepositoryContract
         return $test->stat;
     }
 
+    public function getFlickrApiObj()
+    {
+        return $this->flickr;
+    }
+
     /**
      * Flickr photo search method.
      *

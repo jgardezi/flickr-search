@@ -2,16 +2,17 @@
 
 namespace App\Repositories;
 
+use JeroenG\Flickr\Flickr;
 use App\Http\Requests\FlickrSearchRequest;
 
 interface FlickrRepositoryContract
 {
     /**
-     * Test Flickr API connection.
+     * Get Flickr API class instance
      *
-     * @return string
+     * @return Flickr
      */
-    public function testFlickrApi();
+    public function getFlickrApiObj();
 
     /**
      * Find a photo
